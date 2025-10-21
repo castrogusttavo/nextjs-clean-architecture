@@ -1,37 +1,78 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
   "vcs": {
-    "enabled": true,
+    "enabled": false,
     "clientKind": "git",
-    "useIgnoreFile": true
+    "useIgnoreFile": false
   },
   "files": {
-    "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+    "ignoreUnknown": false,
+    "includes": [
+      "**/app/**/*",
+      "**/tests/**/*",
+      "!**/.next/**",
+      "!**/node_modules"
+    ]
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2
+    "indentStyle": "tab"
   },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useButtonType": "off",
+        "useAltText": "off",
+        "noAutofocus": "off",
+        "noPositiveTabindex": "off",
+        "useIframeTitle": "off"
+      },
+      "complexity": {
+        "noForEach": "off",
+        "noUselessConstructor": "off"
+      },
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noDebugger": "off",
+        "noAssignInExpressions": "off",
+        "noConsole": { "level": "off", "options": { "allow": ["log"] } }
+      },
+      "style": {
+        "noShoutyConstants": "off",
+        "useNamingConvention": "off",
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off"
       }
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
     }
   },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "bracketSpacing": true,
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "jsxQuoteStyle": "single",
+      "attributePosition": "auto",
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 80
     }
   }
 }
